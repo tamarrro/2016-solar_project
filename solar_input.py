@@ -2,6 +2,7 @@
 # license: GPLv3
 
 from solar_objects import Star, Planet
+from solar_model import *
 
 
 def read_space_objects_data_from_file(input_filename):
@@ -43,14 +44,14 @@ def parse_star_parameters(line, star:Star):
     **star** — объект звезды.
     """
     star_list = line.split()
-    star.type = star_list[0]
+    star.type = star_list[0].lower()
     star.color = star_list[2]
     star.R = int(star_list[1])
     star.m = float(star_list[3])
-    star.x = int(star_list[4])
-    star.y = int(star_list[5])
-    star.Vx = int(star_list[6])
-    star.Vy = int(star_list[7])
+    star.x = float(star_list[4])
+    star.y = float(star_list[5])
+    star.Vx = float(star_list[6])
+    star.Vy = float(star_list[7])
     
 
 def parse_planet_parameters(line, planet:Planet):
@@ -66,14 +67,14 @@ def parse_planet_parameters(line, planet:Planet):
     **planet** — объект планеты.
     """
     planet_list = line.split()
-    planet.type = planet_list[0]
+    planet.type = planet_list[0].lower()
     planet.color = planet_list[2]
     planet.R = int(planet_list[1])
     planet.m = float(planet_list[3])
-    planet.x = int(planet_list[4])
-    planet.y = int(planet_list[5])
-    planet.Vx = int(planet_list[6])
-    planet.Vy = int(planet_list[7])
+    planet.x = float(planet_list[4])
+    planet.y = float(planet_list[5])
+    planet.Vx = float(planet_list[6])
+    planet.Vy = float(planet_list[7])
 
 
 def write_space_objects_data_to_file(output_filename, space_objects):
